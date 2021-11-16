@@ -88,8 +88,8 @@ end
 
 function M.try_add(bufnr)
     local config = require("lspconfig")["null-ls"]
-    if not config and config.manager then
-        return
+    if not (config and config.manager) then
+      return
     end
 
     bufnr = bufnr or api.nvim_get_current_buf()
